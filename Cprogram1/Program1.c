@@ -49,16 +49,30 @@ void six_month(double* inputs, char* months[]){
 void sales_report(double* inputs, char* months[]){
     printf("Sales Report (Highest to Lowest): \n");
     printf("  Month    Sales  \n");
-    double sorted[12];
+    int ranking[12];
+    double copy[12];
+    for (int i = 0; i < 12; i++){
+        copy[i] = inputs[i];
+    }
     for (int i = 0; i < 12; i++){
         int lowest = i;
         for (int j = 1 + i; j < 12; j++){
-            if (inputs[j] < inputs[lowest]){
+            if (inputs[j] > inputs[lowest]){
                 lowest = j;
+                ranking[i] = j;
             }
         }
         swap(&inputs[i], &inputs[lowest]);
     }
+    for (int i = 0; i < 12; i++){
+        for (int k = 0; k < 12; k++){
+            if (copy[k] == inputs[i]){
+                printf("%s  ", months[k]);
+            }
+        }
+        printf("$%.2f \n", inputs[i]);
+    }
+
 }
 
 void swap(double* val1, double* val2){
