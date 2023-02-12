@@ -34,6 +34,18 @@ void sales_summary(double* inputs, char* months[]){
 
 }
 
+void six_month(double* inputs, char* months[]){
+    printf("Six-Month Moving Average Report: \n");
+    double average = 0;
+    for (int i = 0; i <= 6; i++){
+        for (int j = 0 + i; j < 6 + i; j++){
+            average += inputs[j];
+        }
+        printf("%s - %s  $%.2f \n", months[i], months[i + 5], average / 6);  
+        average = 0;
+    }
+}
+
 double convert(char* line){
     double value = 0;
     int decimal = 1;
@@ -72,6 +84,8 @@ int main(){
     monthly_sales(inputs, months);
     printf("\n");
     sales_summary(inputs, months);
+    printf("\n");
+    six_month(inputs, months);
     fclose(input);
     return 0;
 }
