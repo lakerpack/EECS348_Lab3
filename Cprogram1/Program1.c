@@ -46,6 +46,27 @@ void six_month(double* inputs, char* months[]){
     }
 }
 
+void sales_report(double* inputs, char* months[]){
+    printf("Sales Report (Highest to Lowest): \n");
+    printf("  Month    Sales  \n");
+    double sorted[12];
+    for (int i = 0; i < 12; i++){
+        int lowest = i;
+        for (int j = 1 + i; j < 12; j++){
+            if (inputs[j] < inputs[lowest]){
+                lowest = j;
+            }
+        }
+        swap(&inputs[i], &inputs[lowest]);
+    }
+}
+
+void swap(double* val1, double* val2){
+    double placeholder = *val1;
+    *val1 = *val2;
+    *val2 = placeholder;
+}
+
 double convert(char* line){
     double value = 0;
     int decimal = 1;
@@ -86,6 +107,8 @@ int main(){
     sales_summary(inputs, months);
     printf("\n");
     six_month(inputs, months);
+    printf("\n");
+    sales_report(inputs, months);
     fclose(input);
     return 0;
 }
