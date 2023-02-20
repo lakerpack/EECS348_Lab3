@@ -2,10 +2,10 @@
 
 int main(){
     int choice;
-    while (choice > 1){
+    do {
         printf("Enter 0 or 1 to STOP \n");
         printf("Enter the NFL score: ");
         scanf("%d", &choice);
-    }
+    } while (choice > 1);
     return 0;
 }
