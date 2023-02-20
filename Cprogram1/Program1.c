@@ -109,12 +109,8 @@ int main(){
     int length = 0;
     int counter = 2;
     input = fopen("input.txt", "r");
-    while(fgets(num, 9, input)){
-        if (counter % 2 == 0){
-            inputs[length] = convert(num);
-            length++;
-        }
-        counter++;
+    for (int i = 0; i < 12; i++){
+        fscanf(input, "%lf\n", &inputs[i]);
     }
     monthly_sales(inputs, months);
     printf("\n");
