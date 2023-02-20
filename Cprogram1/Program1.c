@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+void swap(double* val1, double* val2){
+    double placeholder = *val1;
+    *val1 = *val2;
+    *val2 = placeholder;
+}
+
 void monthly_sales(double* inputs, char* months[]){
     printf("Monthly sales report for 2022: \n");
     printf("Month     Sales\n");
@@ -74,11 +80,6 @@ void sales_report(double* inputs, char* months[]){
 
 }
 
-void swap(double* val1, double* val2){
-    double placeholder = *val1;
-    *val1 = *val2;
-    *val2 = placeholder;
-}
 
 int main(){ 
     FILE *input;
