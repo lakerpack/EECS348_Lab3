@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 void monthly_sales(double* inputs, char* months[]){
     printf("Monthly sales report for 2022: \n");
@@ -79,26 +78,6 @@ void swap(double* val1, double* val2){
     double placeholder = *val1;
     *val1 = *val2;
     *val2 = placeholder;
-}
-
-double convert(char* line){
-    double value = 0;
-    int decimal = 1;
-    int counter = 0;
-    int spare = 0;
-    for (int i = 0; *(line + i) != '\0'; i++){
-        if (*(line + i) == '.'){
-            spare = i - 1; 
-        }
-    }
-    for (int i = 0; *(line + i) != '\0'; i++){
-        if (*(line + i) != '.'){
-            value += (*(line + i) - '0') * pow(10, spare);
-            spare--;
-        }
-    }
-    return value;
-
 }
 
 int main(){ 
